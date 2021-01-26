@@ -1,25 +1,3 @@
-//this version is for out-of-time photon analysis, added "o" for everything.
-//edited by De-Lin Macive Xiong, Florida State University, 8.12.2019
-
-//03.02.2020 adding detid info for eta-wing spike estimate
-
-//03.17.2020 adding seed ieta iphi directly in in-time and out-of-time region.
-
-//03.27.2020 debugging the break segment....
-
-//add branchcrystals and fillCrystals for cells detid on 04.01.2020
-
-//07.09.2020 switched from 94X to 106X//
-
-//07.14.2020 adding cystals from photon cluster from untime.cc
-//07.14.2020 adding PFphoton
-//07.14.2020 adding track information -> no track for now 07.20.2020
-
-
-//adding ootphoton iso
-//ophoPFClusEcalIso_.push_back(iPho->ecalPFClusterIso());
-//ophoPFClusHcalIso_.push_back(iPho->hcalPFClusterIso());
-
 
 //for getting detid
 #include "Geometry/CaloGeometry/interface/CaloGeometry.h"
@@ -38,19 +16,6 @@
 
 using namespace std;
 
-/*
-//track info
-Int_t nAllTracks;
-Float_t AllTracksPt[10000];
-Float_t AllTracksEta[10000];
-Float_t AllTracksPhi[10000];
-Int_t AllTracksNhit[10000];
-Float_t AllTracksChi2[10000];
-Float_t AllTracksPtErr[10000];
-Float_t AllTracksDxy[10000];
-Float_t AllTracksZ0[10000];
-Int_t AllTracksQ[10000];
-*/
 
 //pfpohton for crystal selection from cluster
 Int_t nPFPhoton;
@@ -233,22 +198,6 @@ bool isInFootprint(const T& thefootprint, const U& theCandidate) {
   return false;
 }
 
-//track info
-void ggNtuplizer::branchesTracks(TTree* tree) {
-    //track info
-    /*
-    tree->Branch("nAllTracks", &nAllTracks,"nAllTracks/I");
-    tree->Branch("AllTracksPt", AllTracksPt,"AllTracksPt[nAllTracks]/F");
-    tree->Branch("AllTracksEta", AllTracksEta,"AllTracksEta[nAllTracks]/F");
-    tree->Branch("AllTracksPhi", AllTracksPhi,"AllTracksPhi[nAllTracks]/F");
-    tree->Branch("AllTracksNhit", AllTracksNhit,"AllTracksNhit[nAllTracks]/I");
-    tree->Branch("AllTracksChi2", AllTracksChi2, "AllTracksChi2[nAllTracks]/F");
-    tree->Branch("AllTracksPtErr", AllTracksPtErr,"AllTracksPtErr[nAllTracks]/F");
-    tree->Branch("AllTracksDxy", AllTracksDxy, "AllTracksDxy[nAllTracks]/F");
-    tree->Branch("AllTracksZ0", AllTracksZ0, "AllTracksZ0[nAllTracks]/F");
-    tree->Branch("AllTracksQ", AllTracksQ, "AllTracksQ[nAllTracks]/I");
-    */
-}
 
 //crystal info
 void ggNtuplizer::branchesCrystals(TTree* tree) {
